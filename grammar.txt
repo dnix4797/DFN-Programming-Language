@@ -1,0 +1,111 @@
+//Daniel Nix grammar.txt CS 403 Programming Languages
+
+
+program : statement
+		| statement program
+
+definition	: functionDef
+			| varDef
+			| classDef
+			| importDef
+			| methodDef
+			| lambdaDef
+
+importDef 	: IMPORT STRING SEMICOLON
+
+dotMethod	: METHOD DOT methodCall
+
+//This is for creating instances of a function, variable, or class definition
+newDef	: NEW definition
+
+classDef	: CLASS VARIABLE OPAREN optExprList CPAREN block
+
+variable 	: VARIABLE
+			| VARIABLE OPAREN optExprList CPAREN		//f(x+5)
+			| VARIABLE OBRACE expr CBRACE 				//arrays
+
+unary 	: variable
+		| INT
+		| REAL
+		| TRUE
+		| CHAR
+		| STRING
+		| UMINUS unary
+		| RETURN optUnary
+
+
+optUnary	: unary
+			| *empty*
+
+shortOp 	: MINMIN
+			| PLUSPLUS
+			| SQUARED
+
+operation	: EQUALS 
+			| LESSTHAN 
+			| GREATERTHAN
+			| LTE
+			| GTE
+			| PLUS
+			| MINUS
+			| TIMES
+			| DIVIDE
+			| MOD
+			| ASSIGN
+			| AND
+			| OR
+
+functionDef	: FUNCTION VARIABLE OPAREN paramList CPAREN block // function add(4,5){ }
+
+lambdaDef	: LAMBDA OPAREN paramList CPAREN block
+
+methodDef 	: PRIVACY VARIABLE OPAREN optExprList CPAREN block
+
+expr 	: unary
+		| unary operation expr
+		| unary shortOp
+
+exprList 	: expr
+			| expr COMMA exprList
+
+optExprList	: exprList
+			| *empty*
+
+statement 	: expr SEMICOLON
+			| ifStatement
+			| whileLoop 
+			| definition
+			| printStatement
+
+statements 	: statement
+			| statement statements
+
+optStatements	: statements
+				| *empty*
+
+varDef 	: VAR variable optInit SEMICOLON 
+
+optInit : ASSIGN expr
+		| *empty*
+
+block 	: OBRACKET optStatements CBRACKET
+
+optBlock	: block
+			| *empty*
+
+ifStatement	: IF OPAREN exprList CPAREN block optElse
+
+optElse	: ELSE optBlock
+		| ELSE ifStatement
+		| *empty*
+
+whileLoop	: WHILE OPAREN expr CPAREN block
+
+//error involving lambdas and paramlist/exprList 	it wouldnt let me to lambda(x,5){} 
+paramList	: unary 
+			| unary COMMA paramList
+			| *empty*
+
+
+printStatement 	: PRINT OPAREN expr CPAREN SEMICOLON
+				| PRINTLN OPAREN expr CPAREN SEMICOLON

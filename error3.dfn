@@ -1,0 +1,7 @@
+^~
+    This is an error because the while is spelt wrong!
+~^
+int x = 0;
+whele(x < 5){
+    x++;
+}

@@ -1,0 +1,2 @@
+#!/bin/bash
+java Evaluator $1

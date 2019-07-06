@@ -1,0 +1,5 @@
+^~
+    This error because assignment is 1 '=' sign!
+~^
+var y == 7;
+println(y);

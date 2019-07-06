@@ -1,0 +1,5 @@
+^^objects.dfn
+
+lambda(1){
+    println("Objects in my language do not work currently");
+}

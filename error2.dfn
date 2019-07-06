@@ -1,0 +1,6 @@
+^~
+    This is an error because function defs use () not []
+~^
+function main[]{
+    return;
+}

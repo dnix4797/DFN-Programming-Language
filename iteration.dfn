@@ -1,0 +1,8 @@
+var x = 5;
+
+while(x < 10){
+    println(x);
+    x++;
+}
+print("The final value of x = ");
+println(x);

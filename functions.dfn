@@ -1,0 +1,15 @@
+^^functions.dfn
+function add(){
+    var x = 5;
+    print(x);
+    println(" = x before adding");
+    x++;
+    print(x);
+    println(" = x after adding");
+    return;
+}
+function main(){
+    add();
+    return;
+}
+main();

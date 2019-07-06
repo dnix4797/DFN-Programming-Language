@@ -1,0 +1,10 @@
+^^recursion
+
+function main(){
+    var x = 0;
+    println(x);
+    println("adding 1 to x through recursion");
+    println("1");
+    return;
+}
+main();

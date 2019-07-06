@@ -1,0 +1,8 @@
+^~
+    This is an error because the while is spelt wrong!
+    Also, You MUST have an expr in a while Loop
+~^
+int x = 0;
+whele(){
+    x++;
+}

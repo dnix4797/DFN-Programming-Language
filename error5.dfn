@@ -1,0 +1,6 @@
+^~
+    This is an error because you never called main using 'main();'
+~^
+function main(){
+    println(x);
+}

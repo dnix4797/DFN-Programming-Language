@@ -1,0 +1,21 @@
+function main(){
+    var x = 5;
+    x = x$;
+    function add(x, y){ ^^ you cannot pass int literal values unless they are a variable so no (5,6)
+        x = x + 5;
+        x = x - 2;
+        x = x * 3;
+        x = x / 2;
+        x = x % 1;
+        x++;
+        x--;
+        var y[19];
+        println("This is a print statement");
+        print("This is too");
+        lambda(x){
+            var y = x + 5;
+        }
+        return;
+    }
+    return;
+}
